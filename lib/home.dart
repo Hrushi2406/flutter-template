@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'core/animations/page_transition.dart';
-import 'scroll_view_test.dart';
-import 'typography.dart';
 
 import 'core/animations/animations.dart';
+import 'core/animations/page_transition.dart';
+import 'core/theme/theme_provider.dart';
 import 'core/utils/utils.dart';
 import 'core/widgets/custom_widgets.dart';
-import 'core/theme/theme_provider.dart';
+import 'scroll_view_test.dart';
+import 'typography.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

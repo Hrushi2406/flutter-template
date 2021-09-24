@@ -11,6 +11,7 @@ class CustomAppBar extends StatelessWidget {
     this.title = '',
     this.isTitleCentered,
     this.hasBackButton = true,
+    this.isHeroAnimated = true,
     this.actions,
   });
 
@@ -30,10 +31,13 @@ class CustomAppBar extends StatelessWidget {
   ///The widgets are rendered from end
   final List<Widget>? actions;
 
+  ///Is Hero animated
+  final bool isHeroAnimated;
+
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: 'app_bar',
+      tag: isHeroAnimated ? 'app_bar' : 'no_hero_animation',
       child: Container(
         width: double.infinity,
         color: Theme.of(context).scaffoldBackgroundColor,
