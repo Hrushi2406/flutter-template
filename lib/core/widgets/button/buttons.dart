@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '/core/utils/utils.dart';
+import '../../utils/utils.dart';
 import '../custom_widgets.dart';
 import 'platform_button.dart';
 
