@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '/core/utils/utils.dart';
+import '../utils/utils.dart';
 
 class AppTheme {
   ///LIGHT MODE
