@@ -1,0 +1,13 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    argument_type_not_assignable: false
+    sort_constructors_first: false
+    sort_pub_dependencies: false
+    avoid_positional_boolean_parameters: false
+    non_bool_condition: false
+    sort_child_properties_last: true
+    await_only_futures: true
+    directives_ordering: false
+    use_setters_to_change_properties: false
