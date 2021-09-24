@@ -2,9 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:template/core/utils/utils.dart';
 
-import '../../utils/ui_helper.dart';
+import '/core/utils/utils.dart';
 import '../custom_widgets.dart';
 import 'platform_button.dart';
 

@@ -1,7 +1,8 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import 'package:flutter/material.dart';
-import 'package:template/core/utils/utils.dart';
+
+import '/core/utils/utils.dart';
 
 class AppTheme {
   ///LIGHT MODE
