@@ -22,27 +22,20 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return OrientationBuilder(builder: (context, orientation) {
-        SizeConfig.init(
-          screenSize: Size(constraints.maxWidth, constraints.maxHeight),
-          orientation: orientation,
-        );
+    return SizeConfiguration(
+      child: Consumer<ThemeProvider>(
+        builder: (context, provider, child) {
+          return MaterialApp(
+            title: 'App',
+            theme: AppTheme.light(),
+            darkTheme: AppTheme.dark(),
+            themeMode: provider.currentTheme,
+            home: const Home(),
 
-        return Consumer<ThemeProvider>(
-          builder: (context, provider, child) {
-            return MaterialApp(
-              title: 'App',
-              theme: AppTheme.light(),
-              darkTheme: AppTheme.dark(),
-              themeMode: provider.currentTheme,
-              home: const Home(),
-
-              // home: Home(),
-            );
-          },
-        );
-      });
-    });
+            // home: Home(),
+          );
+        },
+      ),
+    );
   }
 }

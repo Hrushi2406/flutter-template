@@ -6,12 +6,13 @@ import 'package:flutter/material.dart';
 class SizeConfig {
   //TODO: Change default parameters as per your device
   //default parameters set as per iPhone X dimensions
-  static const double _defaultScreenWidth = 375;
-  static const double _defaultScreenHeight = 812;
+  static double _defaultScreenWidth = 375;
+  static double _defaultScreenHeight = 812;
 
   //parameters required for calculating SizeConfig
   final Size screenSize;
   final Orientation orientation;
+  final Size? designSize;
 
   //Scale Factor
   static late double _widthMultiplier;
@@ -29,9 +30,19 @@ class SizeConfig {
   static late Orientation? _orientation;
 
   //default constructor
-  SizeConfig.init({required this.screenSize, required this.orientation}) {
+  SizeConfig.init({
+    required this.screenSize,
+    required this.orientation,
+    this.designSize,
+  }) {
     //so that we can access orientation in getInfo()
     _orientation = orientation;
+
+    //Set the default width and height
+    if (designSize != null) {
+      _defaultScreenWidth = designSize!.width;
+      _defaultScreenHeight = designSize!.height;
+    }
 
     //initialising actual screen dimensions
     _actualScreenWidth = screenSize.shortestSide;
@@ -120,5 +131,36 @@ class SizeConfig {
     width multiplying factor: $_widthMultiplyingFactor
     height multiplying factor: $_heightMultiplyingFactor
     ''';
+  }
+}
+
+class SizeConfiguration extends StatelessWidget {
+  const SizeConfiguration({
+    Key? key,
+    required this.child,
+    this.designSize,
+  }) : super(key: key);
+
+  ///Child Widget
+  final Widget child;
+
+  ///The size of device
+  ///
+  ///on which design are designed
+  final Size? designSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraints) {
+      return OrientationBuilder(builder: (context, orientation) {
+        SizeConfig.init(
+          screenSize: Size(constraints.maxWidth, constraints.maxHeight),
+          orientation: orientation,
+          designSize: designSize,
+        );
+
+        return child;
+      });
+    });
   }
 }

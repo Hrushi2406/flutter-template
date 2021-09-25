@@ -29,9 +29,12 @@ class Navigation {
     String? name,
     Route? customPageTransition,
   }) {
+    if (customPageTransition != null) {
+      Navigator.of(context).push(customPageTransition);
+    }
     if (screen != null) {
       Navigator.of(context).pushReplacement(
-        customPageTransition ?? MaterialPageRoute(builder: (_) => screen),
+        MaterialPageRoute(builder: (_) => screen),
       );
     } else if (name != null) {
       Navigator.of(context).pushReplacementNamed(name);
@@ -48,9 +51,12 @@ class Navigation {
     String? name,
     Route? customPageTransition,
   }) {
+    if (customPageTransition != null) {
+      Navigator.of(context).push(customPageTransition);
+    }
     if (screen != null) {
       Navigator.of(context).pushAndRemoveUntil(
-        customPageTransition ?? MaterialPageRoute(builder: (_) => screen),
+        MaterialPageRoute(builder: (_) => screen),
         (Route<dynamic> route) => false,
       );
     } else if (name != null) {
@@ -69,9 +75,12 @@ class Navigation {
     String? name,
     Route? customPageTransition,
   }) {
+    if (customPageTransition != null) {
+      Navigator.of(context).push(customPageTransition);
+    }
     if (screen != null) {
       Navigator.of(context).pushAndRemoveUntil(
-        customPageTransition ?? MaterialPageRoute(builder: (_) => screen),
+        MaterialPageRoute(builder: (_) => screen),
         ModalRoute.withName(popTill),
       );
     } else if (name != null) {
