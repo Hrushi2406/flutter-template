@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 ///Performs Check of platform
 ///
 ///and returns appropriate widget
+///
 class PlatformButton extends StatelessWidget {
   const PlatformButton({
     required this.child,
