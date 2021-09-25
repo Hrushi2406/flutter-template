@@ -134,20 +134,22 @@ class SizeConfig {
   }
 }
 
+typedef SizeWidgetBuilder = Widget Function(BuildContext context);
+
 class SizeConfiguration extends StatelessWidget {
   const SizeConfiguration({
     Key? key,
-    required this.child,
+    required this.builder,
     this.designSize,
   }) : super(key: key);
-
-  ///Child Widget
-  final Widget child;
 
   ///The size of device
   ///
   ///on which design are designed
   final Size? designSize;
+
+  //Widget Builder
+  final SizeWidgetBuilder builder;
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +161,7 @@ class SizeConfiguration extends StatelessWidget {
           designSize: designSize,
         );
 
-        return child;
+        return Builder(builder: builder);
       });
     });
   }
