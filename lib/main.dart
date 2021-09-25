@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizeConfiguration(
-      child: Consumer<ThemeProvider>(
+      builder: (context) => Consumer<ThemeProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
             title: 'App',
